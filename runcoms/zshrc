@@ -11,3 +11,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+function print_colors() {
+        perl -e 'print map sprintf("\x1b[38;5;%um%4u", $_, $_), 0 .. 255; print "\n"'
+}
+
+function yt() {
+        mplayer -playlist <(quvi dump -p rfc2483 "$@")
+}
+
