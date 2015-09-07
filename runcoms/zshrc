@@ -19,3 +19,11 @@ function yt() {
         mplayer -playlist <(quvi dump -p rfc2483 "$@")
 }
 
+#if [[ "$OSTYPE" != darwin* ]]; then
+#	if [[ -f "~/.ssh/agent" ]]; then
+#		. ~/.ssh/agent
+#	else
+#		ssh-agent > ~/.ssh/agent
+#		. ~/.ssh/agent
+#	fi
+#fi

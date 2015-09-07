@@ -34,9 +34,10 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt' \
-  'rsync'
+  'rsync' \
+  'ssh'
 
-zstyle ':prezto:module:gpg-agent' ssh-support 'yes'
+zstyle ':prezto:module:gpg-agent' ssh-support 'no'
 
 #
 # Editor
@@ -53,7 +54,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
 #
 # GNU Utility
