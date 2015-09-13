@@ -31,7 +31,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'python' \
   'gpg' \
-  'syntax-highlighting' \
   'history-substring-search' \
   'prompt' \
   'rsync' \
@@ -136,3 +135,5 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+
+unsetopt MULTIOS
