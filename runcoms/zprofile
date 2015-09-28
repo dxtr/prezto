@@ -13,9 +13,12 @@
 if [[ "$OSTYPE" == darwin* ]]; then
     export BROWSER='open'
     unset SSH_AUTH_SOCK
-	path=(/usr/local/Cellar/chicken/*/bin /usr/local/bin /usr/local/sbin $path)
+    path=(/usr/local/Cellar/chicken/*/bin /usr/local/bin /usr/local/sbin $path)
 elif [[ "$OSTYPE" == openbsd* ]]; then
-	path=(/usr/local/bin /usr/local/sbin $path)
+    path=(/usr/local/bin /usr/local/sbin $path)
+    if [[ -d "/usr/local/jdk-1.8.0/" ]]; then
+	path+="/usr/local/jdk-1.8.0/bin/"
+    fi
 fi
 
 #
