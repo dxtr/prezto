@@ -1,14 +1,5 @@
 # -*- mode: sh;-*-
 #
-# Executes commands at login pre-zshrc.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-#
-# Browser
-#
 
 if [[ "$OSTYPE" == darwin* ]]; then
     export BROWSER='open'
@@ -40,6 +31,11 @@ fi
 #
 # Paths
 #
+
+if [[ -f "${HOME}/perl5/perlbrew/etc/bashrc" ]]; then
+    source "${HOME}/perl5/perlbrew/etc/bashrc"
+else
+fi
 
 # Set the the list of directories that cd searches.
 # cdpath=(
