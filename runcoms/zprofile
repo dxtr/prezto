@@ -43,12 +43,23 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+export GOPATH="$HOME/.local/go"
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/Cellar/chicken/*/bin/
-  /usr/local/{bin,sbin}
+  #/usr/local/Cellar/chicken/*/bin/
+  /usr/local/{sbin,bin}
+  /opt/vagrant/bin
+  $HOME/.cabal/bin
+  $GOPATH/bin
+  $(/usr/local/bin/brew --prefix homebrew/php/php56)/bin
   $path
 )
+
+export MANPATH="/usr/local/opt/erlang/lib/erlang/man:/usr/local/share/man:$MANPATH"
+
+if [[ -f "$HOME/perl5/perlbrew/etc/bashrc" ]]; then
+. $HOME/perl5/perlbrew/etc/bashrc
+fi
 
 #
 # Less
@@ -75,3 +86,6 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+# Private stuff
+source ~/.zprezto/private
