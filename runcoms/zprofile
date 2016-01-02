@@ -13,14 +13,17 @@
 if [[ "$OSTYPE" == darwin* ]]; then
     export BROWSER='open'
     unset SSH_AUTH_SOCK
+	path=(/usr/local/Cellar/chicken/*/bin /usr/local/bin /usr/local/sbin $path)
+elif [[ "$OSTYPE" == openbsd* ]]; then
+	path=(/usr/local/bin /usr/local/sbin $path)
 fi
 
 #
 # Editors
 #
 
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='emacs'
+export VISUAL='emacs'
 export PAGER='less'
 
 #
@@ -34,9 +37,6 @@ fi
 #
 # Paths
 #
-
-# Ensure path arrays do not contain duplicates.
-typeset -gU cdpath fpath mailpath path
 
 # Set the the list of directories that cd searches.
 # cdpath=(
@@ -54,6 +54,7 @@ path=(
   $(/usr/local/bin/brew --prefix homebrew/php/php56)/bin
   $path
 )
+typeset -gU cdpath fpath mailpath path
 
 export MANPATH="/usr/local/opt/erlang/lib/erlang/man:/usr/local/share/man:$MANPATH"
 

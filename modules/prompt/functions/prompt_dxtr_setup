@@ -18,11 +18,6 @@ function prompt_skwp_precmd {
   if (( $+functions[git-info] )); then
     git-info
   fi
-
-  # Get Ruby information.
-  if (( $+functions[ruby-info] )); then
-    ruby-info
-  fi
 }
 
 function prompt_skwp_setup {
@@ -63,9 +58,6 @@ function prompt_skwp_setup {
   zstyle ':prezto:module:git:info:modified' format "${_prompt_skwp_colors[4]}*%f"
   zstyle ':prezto:module:git:info:untracked' format "${_prompt_skwp_colors[3]}*%f"
   zstyle ':prezto:module:git:info:keys' format 'prompt' '(%b%d%a%m%u)'
-
-  # Set ruby-info parameters.
-  zstyle ':prezto:module:ruby:info:version' format '[%v]'
 
   # Define prompts.
   PROMPT="${_prompt_skwp_colors[3]}%n%f@${_prompt_skwp_colors[2]}%M%f%B:%b${_prompt_skwp_colors[5]}%d%f "'${git_info:+${(e)git_info[prompt]}}'"%# "
