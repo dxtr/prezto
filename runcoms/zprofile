@@ -45,16 +45,25 @@ fi
 #   $cdpath
 # )
 
+export GOPATH="$HOME/.local/go"
 # Set the list of directories that Zsh searches for programs.
-
-#path=(
-#  /usr/local/Cellar/chicken/*/bin/
-#  /usr/local/{bin,sbin}
-#  $path
-#)
-
-# Ensure path arrays do not contain duplicates
+path=(
+  #/usr/local/Cellar/chicken/*/bin/
+  /usr/local/{sbin,bin}
+  /opt/vagrant/bin
+  $HOME/.local/bin
+  $HOME/.cabal/bin
+  $GOPATH/bin
+  $(/usr/local/bin/brew --prefix homebrew/php/php56)/bin
+  $path
+)
 typeset -gU cdpath fpath mailpath path
+
+export MANPATH="/usr/local/opt/erlang/lib/erlang/man:/usr/local/share/man:$MANPATH"
+
+if [[ -f "$HOME/perl5/perlbrew/etc/bashrc" ]]; then
+. $HOME/perl5/perlbrew/etc/bashrc
+fi
 
 #
 # Less
@@ -83,3 +92,4 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 alias gpg='gpg2'
+source ~/.zprezto/private
