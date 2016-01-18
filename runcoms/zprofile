@@ -49,6 +49,7 @@ path=(
   #/usr/local/Cellar/chicken/*/bin/
   /usr/local/{sbin,bin}
   /opt/vagrant/bin
+  $HOME/.local/bin
   $HOME/.cabal/bin
   $GOPATH/bin
   $(/usr/local/bin/brew --prefix homebrew/php/php56)/bin
