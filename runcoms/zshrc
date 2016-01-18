@@ -27,3 +27,5 @@ function yt() {
 #		. ~/.ssh/agent
 #	fi
 #fi
+
+stty sane

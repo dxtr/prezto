@@ -7,6 +7,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
     path=(/usr/local/Cellar/chicken/*/bin /usr/local/bin /usr/local/sbin $path)
 elif [[ "$OSTYPE" == openbsd* ]]; then
     path=(/usr/local/bin /usr/local/sbin $path)
+    if [[ -d "/home/dxtr/.racket/6.2.1/bin" ]]; then
+        path+="/home/dxtr/.racket/6.2.1/bin/"
+    fi
     if [[ -d "/usr/local/jdk-1.8.0/" ]]; then
 	path+="/usr/local/jdk-1.8.0/bin/"
     fi
@@ -78,3 +81,5 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+alias gpg='gpg2'
