@@ -1,21 +1,18 @@
 # -*- mode: sh;-*-
 #
-# Executes commands at login pre-zshrc.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-#
-# Browser
-#
 
 if [[ "$OSTYPE" == darwin* ]]; then
     export BROWSER='open'
     unset SSH_AUTH_SOCK
-	path=(/usr/local/Cellar/chicken/*/bin /usr/local/bin /usr/local/sbin $path)
+    path=(/usr/local/Cellar/chicken/*/bin /usr/local/bin /usr/local/sbin $path)
 elif [[ "$OSTYPE" == openbsd* ]]; then
-	path=(/usr/local/bin /usr/local/sbin $path)
+    path=(/usr/local/bin /usr/local/sbin $path)
+    if [[ -d "/home/dxtr/.racket/6.2.1/bin" ]]; then
+        path+="/home/dxtr/.racket/6.2.1/bin/"
+    fi
+    if [[ -d "/usr/local/jdk-1.8.0/" ]]; then
+	path+="/usr/local/jdk-1.8.0/bin/"
+    fi
 fi
 
 #
@@ -37,6 +34,11 @@ fi
 #
 # Paths
 #
+
+if [[ -f "${HOME}/perl5/perlbrew/etc/bashrc" ]]; then
+    source "${HOME}/perl5/perlbrew/etc/bashrc"
+else
+fi
 
 # Set the the list of directories that cd searches.
 # cdpath=(
@@ -89,5 +91,5 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
-# Private stuff
+alias gpg='gpg2'
 source ~/.zprezto/private
