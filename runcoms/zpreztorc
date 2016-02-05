@@ -34,7 +34,8 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'prompt' \
   'rsync' \
-  'ssh'
+  'ssh' \
+  'haskell'
 
 zstyle ':prezto:module:gpg-agent' ssh-support 'no'
 
